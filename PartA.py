@@ -51,9 +51,9 @@ def print(wordFrequencyDict):
 
 
 if __name__ == '__main__':
-    tkList = tokenize(sys.argv[1])
-    wfDict = computeWordFrequencies(tkList)
-    print(wfDict)
+    tokenList = tokenize(sys.argv[1])
+    wordFreqDict = computeWordFrequencies(tokenList)
+    print(wordFreqDict)
 
                 
         
