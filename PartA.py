@@ -46,7 +46,8 @@ def computeWordFrequencies(tokenList):
 
 ''' print Time Complexity: O(NlogN)
     The print function below comprises of two instances of sorting through the sorted function to create a descending frequency list 
-    that is also alphabetical in order. Additionally, the final list is iterated to print the results to the console. Therefore, the time
+    that is also alphabetical in order. The sorted function is derived from the Timsort Algorithm which is a combination of merge and insertion sort.
+    The runtime of merge sort is O(NlogN). Additionally, the final list is iterated to print the results to the console. Therefore, the time
     complexity of this function can be described as O(NlogN + NlogN + N) which can be simplified to O(NlogN). 
 '''
 def print(wordFrequencyDict):
