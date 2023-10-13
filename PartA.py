@@ -2,7 +2,7 @@ import sys
 
 
 # This allows me to declare my own function named 'print' whilst retaining the original print function.
-pythonPrint = print 
+originalPrint = print 
 
 
 def tokenize(textFilePath):
@@ -30,13 +30,14 @@ def computeWordFrequencies(tokenList):
 
 
 def print(wordFrequencyDict):
-    pass
+    for w, f in sorted(sorted(wordFrequencyDict.items()), key = lambda entry:  entry[1], reverse = True):
+        originalPrint(w + "\t" + str(f))
 
 
 if __name__ == '__main__':
     tkList = tokenize(sys.argv[1])
     wfDict = computeWordFrequencies(tkList)
-    pythonPrint(wfDict)
+    print(wfDict)
 
                 
         
