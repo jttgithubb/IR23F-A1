@@ -1,3 +1,7 @@
+# UCInetId: tranjt7
+# Author: Jonathan Tran
+
+
 import sys
 from PartA import tokenize, computeWordFrequencies
 
