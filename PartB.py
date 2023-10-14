@@ -25,4 +25,8 @@ def intersection(textFile1, textFile2):
 
 
 if __name__ == '__main__':
-    print(intersection(sys.argv[1], sys.argv[2]))
+    try:
+        print(intersection(sys.argv[1], sys.argv[2]))
+        
+    except IndexError:
+        print("Incorrect number of inputs.")

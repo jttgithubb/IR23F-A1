@@ -17,17 +17,25 @@ originalPrint = print
 '''
 def tokenize(textFilePath):
     allTokensList = []
-    with open(textFilePath, 'r', encoding = 'utf-8') as file:
-        for line in file:
-            lineString = line.strip()
-            for character in lineString:
-                if (not character.isalnum()):
-                    lineString = lineString.replace(character, " ")
-            lineString = lineString.lower()
-            for word in lineString.split():
-                allTokensList.append(word)
+    try:
+        with open(textFilePath, 'r', encoding = 'utf-8') as file:
+            for line in file:
+                lineString = line.strip()
+                for character in lineString:
+                    if (not character.isalnum()):
+                        lineString = lineString.replace(character, " ")
+                lineString = lineString.lower()
+                for word in lineString.split():
+                    allTokensList.append(word)
 
-    return allTokensList
+        return allTokensList    
+           
+    except OSError:
+        originalPrint("Could not open/read file.")
+        sys.exit(1)
+    except Exception:
+        originalPrint("Unexpected error occurred while parsing file.")
+        sys.exit(1)
 
 
 ''' computeWordFrequencies Time Complexity: O(N)
@@ -56,9 +64,13 @@ def print(wordFrequencyDict):
 
 
 if __name__ == '__main__':
-    tokenList = tokenize(sys.argv[1])
-    wordFreqDict = computeWordFrequencies(tokenList)
-    print(wordFreqDict)
+    try:
+        tokenList = tokenize(sys.argv[1])
+        wordFreqDict = computeWordFrequencies(tokenList)
+        print(wordFreqDict)
+    
+    except IndexError:
+        originalPrint("Incorrect number of inputs.")
 
                 
         
